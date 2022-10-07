@@ -7,7 +7,6 @@ feature 'Bookings' do
         fill_in 'Name', with: 'test_name'
         fill_in 'Service', with: "Men\'s Haircut"
         date = Date.today
-        # time = Time.now
         fill_in 'Date', with: date
         fill_in 'Time', with: "12:00"
         click_button 'Submit'
