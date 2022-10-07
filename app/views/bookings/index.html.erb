@@ -1,0 +1,17 @@
+<h1>Bookings#index</h1>
+<p>Find me in app/views/bookings/index.html.erb</p>
+
+<h1>Calendar</h1>
+
+<h3><%= link_to "make an appointment", new_booking_path %></h3>
+
+<ul>
+    <% @bookings.each do | booking | %>
+        <li>
+            <%= booking.name %><br>
+            <%= booking.service %><br>
+            <%= booking.date %>
+            <%= booking.time_start %>
+        </li>
+    <% end %>
+</ul>
