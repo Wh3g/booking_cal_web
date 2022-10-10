@@ -6,7 +6,6 @@ feature 'Bookings' do
         click_link 'make an appointment'
         fill_in 'Name', with: 'test_name'
         fill_in 'Service', with: "Men\'s Haircut"
-        datetime = Time.now
         fill_in 'Start time', with: "12:00"
         click_button 'Submit'
         expect(page).to have_content('test_name')
