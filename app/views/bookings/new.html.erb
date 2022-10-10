@@ -7,10 +7,8 @@
         <%= form.text_field :name %><br><br>
         <%= form.label :service %><br>
         <%= form.text_field :service %><br><br>
-        <%= form.label :date %><br>
-        <%= form.date_field :date %><br><br>
-        <%= form.label :time_start %><br>
-        <%= form.time_field :time_start %><br><br>
+        <%= form.label :start_time %><br>
+        <%= form.datetime_local_field :start_time %><br><br>
 
         <%= form.submit "Submit" %>
     <% end %>

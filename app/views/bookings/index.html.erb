@@ -5,13 +5,15 @@
 
 <h3><%= link_to "make an appointment", new_booking_path %></h3>
 
-<ul>
+<%= week_calendar do |date| %>
+    <%= date %>
     <% @bookings.each do | booking | %>
-        <li>
-            <%= booking.name %><br>
-            <%= booking.service %><br>
-            <%= booking.date %>
-            <%= booking.time_start %>
-        </li>
+        <% if date.strftime("%Y-%m-%d") == booking.start_time.strftime("%Y-%m-%d") %>
+            <div>
+                <%= booking.name %><br>
+                <%= booking.service %><br>
+                <%= booking.start_time.strftime("%H:%M") %>
+            </div>
+        <% end %>
     <% end %>
-</ul>
+<% end %>
