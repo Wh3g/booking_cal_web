@@ -10,10 +10,12 @@ RSpec.describe "Bookings", type: :request do
 
   describe "POST /create" do
     it "creates a Booking and redirects to the Bookings page" do
+      get new_user_registration_path
+      post '/users', params: { user: { email: "name@example.com", password: "password"}}
       get new_booking_path
       expect(response).to render_template(:new)
 
-      post "/bookings", params: { booking: { name: "test_name", service: "test_service", start_time: Time.now } }
+      post "/bookings", params: { booking: { name: "test_name", service: "test_service", start_time: Time.now} }
       # expect(response).to redirect_to(assigns(:booking))
       follow_redirect!
       expect(response).to render_template(:index)

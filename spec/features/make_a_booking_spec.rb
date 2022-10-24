@@ -1,8 +1,12 @@
 require 'rails_helper'
 
 feature 'Bookings' do
-    it "saves a booking" do
+    before do
         visit('/')
+        sign_up
+    end
+    it "saves a booking" do
+        
         click_link 'make an appointment'
         fill_in 'Name', with: 'test_name'
         fill_in 'Service', with: "Men\'s Haircut"

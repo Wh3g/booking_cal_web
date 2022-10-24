@@ -2,6 +2,7 @@ class BookingsController < ApplicationController
   def index
     start_date = params.fetch(:start_date, Date.today).to_date
     @bookings = Booking.where(start_time: start_date.beginning_of_month.beginning_of_week..start_date.end_of_month.end_of_week)
+    @user = current_user if user_signed_in?
   end
 
   def new
@@ -9,7 +10,9 @@ class BookingsController < ApplicationController
   end
 
   def create
-    @booking = Booking.create(booking_params)
+    p current_user
+    p @user = current_user
+    @booking = @user.bookings.create(booking_params)
     redirect_to bookings_url
   end
   
