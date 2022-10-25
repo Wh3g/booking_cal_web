@@ -10,9 +10,11 @@
     <% @bookings.each do | booking | %>
         <% if date.strftime("%Y-%m-%d") == booking.start_time.strftime("%Y-%m-%d") %>
             <div>
-                <%= booking.name %><br>
-                <%= booking.service %><br>
                 <%= booking.start_time.strftime("%H:%M") %>
+                <% if booking.user == current_user %><br>
+                    <%= booking.name %><br>
+                    <%= booking.service %><br>
+                <% end %>
             </div>
         <% end %>
     <% end %>

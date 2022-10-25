@@ -13,7 +13,7 @@ RSpec.describe "Users", type: :feature do
     it "users can sign in" do
         visit('/')
         sign_up
-        click_button "Sign_out"
+        click_button "Sign out"
         click_link "Sign in"
         fill_in 'Email', with: "name@email.com"
         fill_in 'Password', with: 'password'
