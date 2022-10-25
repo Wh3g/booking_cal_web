@@ -5,3 +5,11 @@ def sign_up
     fill_in "Password confirmation", with: "password"
     click_button "Sign up"
 end
+
+def make_booking
+    click_link 'make an appointment'
+    fill_in 'Name', with: 'test_name'
+    fill_in 'Service', with: "Men\'s Haircut"
+    fill_in 'Start time', with: "12:00"
+    click_button 'Submit'
+end
