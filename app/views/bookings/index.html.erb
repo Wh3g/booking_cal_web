@@ -11,7 +11,7 @@
         <% if date.strftime("%Y-%m-%d") == booking.start_time.strftime("%Y-%m-%d") %>
             <div>
                 <%= booking.start_time.strftime("%H:%M") %>
-                <% if booking.user == current_user %><br>
+                <% if booking.user == current_user || current_user_is_admin? %><br>
                     <%= booking.name %><br>
                     <%= booking.service %><br>
                 <% end %>

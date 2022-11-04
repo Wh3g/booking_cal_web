@@ -14,13 +14,22 @@ def make_booking
     click_button 'Submit'
 end
 
-def sign_in
-    click_button "Sign out"
+def sign_in(email)
     click_link "Sign in"
-    fill_in 'Email', with: "name@email.com"
+    fill_in 'Email', with: email
     fill_in 'Password', with: 'password'
     click_button 'Log in'
 end
-# def admin_sign_up
-    
-# end
+
+def admin_sign_in
+    email = "admin@email.com"
+    password = "password"
+    admin = User.new(email: email, password: password, admin: true)
+    admin.save
+    visit('/')
+    sign_in("admin@email.com")
+end
+
+def sign_out
+    click_button 'Sign out'
+end

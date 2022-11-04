@@ -23,8 +23,9 @@ RSpec.describe "Users", type: :feature do
     it "users can sign out" do
         visit('/')
         sign_up
-        sign_in
-        click_button 'Sign out'
+        click_button "Sign out"
+        sign_in("name@email.com")
+        sign_out
         expect(page).to have_content("Signed out successfully")
     end
 end
