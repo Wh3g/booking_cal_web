@@ -6,10 +6,9 @@ RSpec.describe "Users", type: :feature do
             visit('/')
             sign_up
             expect(page).to have_content("Welcome! You have signed up successfully.")
-        end
-
-        
+        end 
     end
+
     it "users can sign in" do
         visit('/')
         sign_up
@@ -19,5 +18,13 @@ RSpec.describe "Users", type: :feature do
         fill_in 'Password', with: 'password'
         click_button 'Log in'
         expect(page).to have_content("Signed in successfully.")
+    end
+
+    it "users can sign out" do
+        visit('/')
+        sign_up
+        sign_in
+        click_button 'Sign out'
+        expect(page).to have_content("Signed out successfully")
     end
 end

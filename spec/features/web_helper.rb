@@ -13,3 +13,14 @@ def make_booking
     fill_in 'Start time', with: "12:00"
     click_button 'Submit'
 end
+
+def sign_in
+    click_button "Sign out"
+    click_link "Sign in"
+    fill_in 'Email', with: "name@email.com"
+    fill_in 'Password', with: 'password'
+    click_button 'Log in'
+end
+# def admin_sign_up
+    
+# end
