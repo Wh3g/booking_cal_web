@@ -28,4 +28,12 @@ feature 'Bookings' do
         expect(page).to have_content("test_name")
         expect(page).to have_content("Men\'s Haircut")
     end
+
+    it "users can see booking details" do
+        make_booking
+        click_link "View"
+        expect(page).to have_content("12:00")
+        expect(page).to have_content("test_name")
+        expect(page).to have_content("Men\'s Haircut")
+    end
 end
