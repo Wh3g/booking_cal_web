@@ -36,4 +36,11 @@ feature 'Bookings' do
         expect(page).to have_content("test_name")
         expect(page).to have_content("Men\'s Haircut")
     end
+
+    it "users can delete bookings" do
+        make_booking
+        click_link "View"
+        click_link "Delete"
+        expect(page).to_not have_content("12:00")
+    end
 end

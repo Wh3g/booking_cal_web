@@ -1,3 +1,9 @@
 <%= @booking.start_time.strftime("%H:%M")%>
+<br>
 <%= @booking.name %>
+<br>
 <%= @booking.service %>
+<br>
+<% if @booking.user == current_user %>
+    <%= link_to "Delete", @booking, method: :delete %>
+<% end %>
